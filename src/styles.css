@@ -69,7 +69,6 @@ body {
    .artistAudio::-webkit-media-controls-toggle-closed-captions-button {
     display: none;
   }
-
 }
 audio::-webkit-media-controls-panel {
   background: #1db954c2;
