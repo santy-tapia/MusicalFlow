@@ -1,0 +1,115 @@
+<div class="row mt-4 mx-md-3 mx-1 my-3">
+  <div class="col-1 text_center d-none d-lg-block">
+    <img
+      [src]="artista!.images | imageURL"
+      style="width: 65px"
+      alt=""
+      class="img-thunbnail rounded-circle"
+    />
+  </div>
+  <div class="col text-white">
+    <h2>{{ this.artista?.name }}</h2>
+    <p class="fw-medium">
+      <a href="{{ this.artista?.external_urls?.spotify }}">Pagina de Spotify</a>
+    </p>
+  </div>
+  <div class="col text-white text-opacity-50">
+    <p style="font-size: 90%">
+      <strong>Popularidad:</strong> {{ this.artista?.popularity }}%
+    </p>
+    <p style="font-size: 90%">
+      <strong>Seguidores:</strong> {{ this.artista?.followers?.total }}
+    </p>
+    <p style="font-size: 90%">
+      <strong>Géneros:</strong>
+      <span style="font-size: 90%" *ngFor="let genero of this.artista?.genres">
+        {{ genero }}
+      </span>
+    </p>
+  </div>
+  <div class="col-2">
+    <button
+      type="button"
+      routerLink="buscar"
+      routerLinkActive="router-link-active"
+      class="btn btn-outline-success my-3 rounded-0 fw-bold"
+    >
+      Volver
+    </button>
+  </div>
+</div>
+<div class="row mx-md-3 mx-1 my-3">
+  <table class="rounded-2 trackTable ">
+    <thead>
+      <tr class=" ">
+        <th scope="col" class="py-3 text-center text-white fs-6 fw-bold">
+          Álbum
+        </th>
+        <th scope="col " class="text-start py-3 text-white fs-6 fw-bold">
+          Canción
+        </th>
+        <th scope="col" class="py-3 text-center text-white fs-6 fw-bold">
+          Duración
+        </th>
+        <th scope="col" class="py-3 text-center text-white fs-6 fw-bold">
+          Reproducir 30sg
+        </th>
+      </tr>
+
+    </thead>
+    <tbody>
+      @for( cancion of canciones; track $index){
+      <tr class="text-center albumRow">
+        <td>
+          <a [routerLink]="['/album', cancion.album.id]">
+            <img
+              [src]="cancion.album.images | imageURL"
+              alt=""
+              class="img-thunbnail m-md-2 m-1 rounded-1 albumImg"
+              style="width: 60px"
+            />
+          </a>
+        </td>
+        <td class="pt-2 text-start">
+          <a
+            href="{{ cancion.external_urls.spotify }}"
+            class="link-underline link-underline-opacity-0 text-white"
+            >{{ cancion.name }}
+            @if(cancion.explicit==true){
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="10"
+              height="10"
+              fill="currentColor"
+              class="bi bi-explicit-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M2.5 0A2.5 2.5 0 0 0 0 2.5v11A2.5 2.5 0 0 0 2.5 16h11a2.5 2.5 0 0 0 2.5-2.5v-11A2.5 2.5 0 0 0 13.5 0zm4.326 10.88H10.5V12h-5V4.002h5v1.12H6.826V7.4h3.457v1.073H6.826z"
+              />
+            </svg>
+            }
+          </a>
+        </td>
+        <td class="pt-2 text-white">
+          {{ getMinute(cancion.duration_ms).getMinutes() }}:
+          @if(getMinute(cancion.duration_ms).getSeconds() >= 10){
+          {{ getMinute(cancion.duration_ms).getSeconds() }}}@else {0{{
+            getMinute(cancion.duration_ms).getSeconds()
+          }}
+          }
+        </td>
+        <td class="pt-2 ">
+          <audio controls [src]="cancion.preview_url" class="artistAudio w-100"></audio>
+        </td>
+      </tr>
+      } @empty {
+      <tr>
+        <div class="col-12 mt-5">
+          <div class="alert alert-info" role="alert">Cargando Novedades...</div>
+        </div>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

@@ -1,1 +1,76 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+.spotifycards {
+  transition: 0.5s;
+  scale: 1;
+}
+
+.spotifycards:hover {
+  box-shadow: 0px 0px 10px 5px rgb(36, 36, 36);
+  scale: 1.05;
+}
+img {
+  object-fit: cover;
+}
+.songTitle {
+  transition: 0.5s;
+  font-size: medium;
+}
+
+.songTitle:hover {
+  font-size: 105%;
+}
+.albumImg {
+  scale: 1;
+  transition: 0.3s;
+}
+.albumImg:hover {
+  scale: 1.05;
+}
+body {
+  background-image: linear-gradient(rgb(33, 33, 33) 40%, #208944 100%);
+  background-attachment: fixed;
+}
+
+.trackTable {
+  background: rgba(55, 55, 55, 0.4);
+}
+
+.trackTable tbody .albumRow {
+  background: rgba(55, 55, 55, 0.4);
+  transition: 0.3s;
+}
+
+
+.trackTable tbody .albumRow:hover {
+  background: rgba(139, 139, 139, 0.3);
+}
+
+
+@media screen and (max-width: 600px){
+  .artistAudio::-webkit-media-controls-timeline {
+    display: none;
+  }
+   .artistAudio::-webkit-media-controls-current-time-display {
+    display: none;
+  }
+   .artistAudio::-webkit-media-controls-time-remaining-display {
+    display: none;
+  }
+   .artistAudio::-webkit-media-controls-volume-slider-container {
+    display: none;
+  }
+   .artistAudio::-webkit-media-controls-mute-button {
+    display: none;
+  }
+   .artistAudio::-webkit-media-controls-open-fullscreen-button {
+    display: none;
+  }
+   .artistAudio::-webkit-media-controls-toggle-closed-captions-button {
+    display: none;
+  }
+
+}
+audio::-webkit-media-controls-panel {
+  background: #1db954c2;
+}

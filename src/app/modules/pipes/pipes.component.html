@@ -1,0 +1,62 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Pipe</th>
+      <th scope="col">Resultado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>cantidad | currency</td>
+      <td>{{this.cantidad| currency}}</td>
+    </tr>
+    <tr>
+      <td>this.cantidad | currency:'EUR':'code'</td>
+      <td>{{this.cantidad | currency:'EUR':'code'}}</td>
+    </tr>
+    <tr>
+      <td>this.cantidad | currency:'EUR':'symbol'</td>
+      <td>{{this.cantidad | currency:'EUR':'symbol'}}</td>
+    </tr>
+    <tr>
+      <td>this.cantidad | currency:'EUR':'symbol'</td>
+      <td>{{this.cantidad | currency:'EUR':'symbol':'0.0-3'}}</td>
+    </tr>
+    <tr>
+       <td>this.cantidad | number:'5.0-2'</td>
+      <td>{{this.cantidad | number:'0.0-0'}}</td>
+    </tr>
+    <tr>
+      <td>this.hoy | date</td>
+      <td>{{this.hoy | date}}</td>
+    </tr>
+  <tr>
+      <td>  this.cantidad | number:'5.0-2' </td>
+      <td>{{ this.cantidad | number:'0.0-0'}}</td>
+    </tr>
+    <tr>
+      <td> this.user| json </td>
+      <td>{{ this.user| json }}</td>
+    </tr>
+    <tr>
+      <td> this.nombre| uppercase </td>
+      <td>{{ this.nombre| uppercase }}</td>
+    </tr>
+    <tr>
+      <td> this.nombre| lowercase </td>
+      <td>{{ this.nombre| lowercase }}</td>
+    </tr>
+    <tr>
+      <td>  this.porc| percent:'0.2-2'</td>
+      <td>{{ this.porc| percent:'0.2-2' }}</td>
+    </tr>
+    <tr>
+      <td> this.numeros | slice:1:3 </td>
+      <td>{{ this.numeros | slice:2:3 }}</td>
+    </tr>
+    <tr>
+      <td> (this.novedades | async) | json </td>
+      <td>{{ (this.novedades | async) | json}}</td>
+    </tr>
+  </tbody>
+</table>
