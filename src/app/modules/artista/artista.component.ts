@@ -17,10 +17,13 @@ import { DatePipe } from '@angular/common';
   styles: ``
 })
 export class ArtistaComponent implements OnInit {
+  /*public index: number
+  public album?:Album
+  public albumTracks?: any*/
+  public index: number
   public artista?: ArtistaBusqueda
-
   public windowResized: { width: number, height: number };
-  public canciones!:Track[];
+  public canciones?:any;
   constructor(ruta:ActivatedRoute, servicio:SpotifyService){
    ruta.params.subscribe(
     (datos:any) => {
@@ -34,11 +37,15 @@ export class ArtistaComponent implements OnInit {
     },
    )
   this.windowResized = { width: window.innerWidth, height: window.innerHeight };
+   this.index = 0
   }
   ngOnInit(): void {
     throw new Error('Method not implemented.');
   }
 
+  changeIndex(num:number){
+    this.index = num-1
+  }
   getMinute(ms:number){
     let minute = new Date(ms)
     return minute

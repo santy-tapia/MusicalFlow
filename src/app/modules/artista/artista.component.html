@@ -39,57 +39,74 @@
   </div>
 </div>
 <div class="row mx-md-3 mx-1 my-3">
-  <table class="rounded-2 trackTable ">
+  <div class="col m-3">
+    <audio
+      class="w-100 mx-3"
+      controls
+      [src]="canciones[this.index].preview_url"
+    ></audio>
+    <p class="fst-italic fs-5 text-white mx-3">
+      {{ canciones[this.index].name }}
+      @if(canciones[this.index].explicit==true){
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="10"
+        height="10"
+        fill="currentColor"
+        class="bi bi-explicit-fill"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M2.5 0A2.5 2.5 0 0 0 0 2.5v11A2.5 2.5 0 0 0 2.5 16h11a2.5 2.5 0 0 0 2.5-2.5v-11A2.5 2.5 0 0 0 13.5 0zm4.326 10.88H10.5V12h-5V4.002h5v1.12H6.826V7.4h3.457v1.073H6.826z"
+        />
+      </svg>
+      }
+    </p>
+  </div>
+</div>
+<div class="row mx-md-3 mx-1 my-3">
+  <table class="rounded-2 trackTable">
     <thead>
       <tr class=" ">
-        <th scope="col" class="py-3 text-center text-white fs-6 fw-bold">
-          Álbum
+        <th
+          scope="col"
+          class="py-3 text-center d-md-grid text-white fs-5 fw-medium"
+        >
+          #
         </th>
-        <th scope="col " class="text-start py-3 text-white fs-6 fw-bold">
+        <th scope="col " class="text-start py-3 text-white fs-5 fw-medium">
           Canción
         </th>
-        <th scope="col" class="py-3 text-center text-white fs-6 fw-bold">
+        <th scope="col" class="py-3 text-center text-white fs-5 fw-medium">
           Duración
         </th>
-        <th scope="col" class="py-3 text-center text-white fs-6 fw-bold">
-          Reproducir 30sg
-        </th>
       </tr>
-
     </thead>
     <tbody>
       @for( cancion of canciones; track $index){
-      <tr class="text-center albumRow">
+      <tr
+        class="pt-5 text-white text-center albumRow"
+        (click)="changeIndex(cancion.track_number)"
+      >
         <td>
-          <a [routerLink]="['/album', cancion.album.id]">
-            <img
-              [src]="cancion.album.images | imageURL"
-              alt=""
-              class="img-thunbnail m-md-2 m-1 rounded-1 albumImg"
-              style="width: 60px"
-            />
-          </a>
+          {{ cancion.track_number }}
         </td>
         <td class="pt-2 text-start">
-          <a
-            href="{{ cancion.external_urls.spotify }}"
-            class="link-underline link-underline-opacity-0 text-white"
-            >{{ cancion.name }}
-            @if(cancion.explicit==true){
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="10"
-              height="10"
-              fill="currentColor"
-              class="bi bi-explicit-fill"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M2.5 0A2.5 2.5 0 0 0 0 2.5v11A2.5 2.5 0 0 0 2.5 16h11a2.5 2.5 0 0 0 2.5-2.5v-11A2.5 2.5 0 0 0 13.5 0zm4.326 10.88H10.5V12h-5V4.002h5v1.12H6.826V7.4h3.457v1.073H6.826z"
-              />
-            </svg>
-            }
-          </a>
+          {{ cancion.name }}
+          @if(cancion.explicit==true){
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="10"
+            height="10"
+            fill="currentColor"
+            class="bi bi-explicit-fill"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M2.5 0A2.5 2.5 0 0 0 0 2.5v11A2.5 2.5 0 0 0 2.5 16h11a2.5 2.5 0 0 0 2.5-2.5v-11A2.5 2.5 0 0 0 13.5 0zm4.326 10.88H10.5V12h-5V4.002h5v1.12H6.826V7.4h3.457v1.073H6.826z"
+            />
+          </svg>
+          }
         </td>
         <td class="pt-2 text-white">
           {{ getMinute(cancion.duration_ms).getMinutes() }}:
@@ -99,11 +116,8 @@
           }}
           }
         </td>
-        <td class="pt-2 ">
-          <audio controls [src]="cancion.preview_url" class="artistAudio w-100"></audio>
-        </td>
       </tr>
-      } @empty {
+      }@empty {
       <tr>
         <div class="col-12 mt-5">
           <div class="alert alert-info" role="alert">Cargando Novedades...</div>
