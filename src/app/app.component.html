@@ -1,8 +1,9 @@
-
-<router-outlet>
-<app-barra-navegacion></app-barra-navegacion>
-<div class="px-md-5 px-3 py-5 ">
-  <router-outlet></router-outlet>
+<div [ngClass]="theme" style="min-height: 100vh;">
+  <router-outlet>
+    <app-barra-navegacion></app-barra-navegacion>
+    <div class="px-md-5  px-3 py-5 ">
+      <router-outlet></router-outlet>
+    </div>
+    </router-outlet>
+    <app-footer></app-footer>
 </div>
-
-</router-outlet>

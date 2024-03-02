@@ -7,12 +7,11 @@ import { ArtistaBusqueda, Image, Track, TrackResult } from '../../interfaces/bus
 import { ImageURLPipe } from '../../pipes/image-url.pipe';
 import { CommonModule, NgClass } from '@angular/common';
 import { DatePipe } from '@angular/common';
-
-
+import { ButtonModule } from 'primeng/button';
 @Component({
   selector: 'app-artista',
   standalone: true,
-  imports: [RouterLink, ImageURLPipe, ImageURLPipe, NgClass, CommonModule, DatePipe],
+  imports: [RouterLink, ImageURLPipe, ImageURLPipe, NgClass, CommonModule, DatePipe, ButtonModule],
   templateUrl: './artista.component.html',
   styles: ``
 })

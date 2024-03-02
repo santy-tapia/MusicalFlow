@@ -1,45 +1,22 @@
-<div class="row my-5">
+<div class="row pt-5 mb-5">
   <div class="col d-grid text-center">
-    <h3 class="display-3 text-white">Lanzamientos Recientes</h3>
+    <h3 class="display-3 fw-normal" [ngClass]="theme">Musical Flow</h3>
   </div>
 </div>
 <div class="row my-5">
-  @for (novedad of this.albums?.albums?.items; track $index) {
-  <div class="col-lg-4 col-md-5 col-xl-3  py-3">
-    <div class="card m-2 spotifycards rounded-2 border border-0">
-      <a [routerLink]="['/album', novedad.id]">
-        <img
-
-            class="card-img-top  rounded-top-2"
-            style="height: 300px;"
-            [src]="
-             novedad.images[2].url"
-            alt="{{ 'Imagen del artista ' + novedad.name }}"
-          />
-      </a>
-      <div class="card-body bg-dark text-white rounded-bottom-2">
-        <a
-          class="link-underline link-underline-opacity-0  text-white"
-          href="{{ novedad.external_urls.spotify }}"
-        >
-          <h5 class="card-title songTitle">{{ novedad.name }}</h5>
-        </a>
-        <p class="card-text">
-          @for (artista of novedad.artists; track $index) {
-          <a
-            [routerLink]="['/artista', artista.id]"
-            class="badge btn btn-outline-secondary rounded-2 me-1 mt-1 p-1"
-          >
-            {{ artista.name }}
-          </a>
-          }
-        </p>
+  
+<p-carousel [value]="albums!" [numVisible]="3" [numScroll]="3" [circular]="true" [responsiveOptions]="responsiveOptions" >
+  <ng-template let-album pTemplate="item">
+    <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
+      <div class="mb-3">
+          <img  [src]="
+          album.images[2].url" [alt]="album.name" class="w-6 shadow-2" />
       </div>
-    </div>
+      <div>
+          <h4 class="mb-1">{{ album.name }}</h4>
+         
+      </div>
   </div>
-  }@empty {
-  <div class="col-12 mt-5">
-    <div class="alert alert-info" role="alert">Cargando Novedades...</div>
-  </div>
-  }
+  </ng-template>
+</p-carousel>
 </div>

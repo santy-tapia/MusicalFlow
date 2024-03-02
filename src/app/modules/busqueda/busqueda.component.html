@@ -1,6 +1,6 @@
-<div class="row my-5">
+<div class="row pt-5  mb-5">
   <div class="col d-grid text-center">
-    <h3 class="display-3 text-white">Artistas</h3>
+    <h3 class="display-3 fw-normal" [class]="theme">Artistas</h3>
   </div>
 </div>
 <div class="row m-3">
@@ -39,11 +39,11 @@
   <div class="row">
     @for (artista of artistas?.items; track $index) {
     <div class="col-lg-4 col-md-5 col-xl-3  my-3">
-      <div class="card m-2 spotifycards rounded-2  border border-0">
+      <div class="card m-2 spotifycards rounded-0  border border-0">
         <a [routerLink]="['/artista', artista.id]">
           <img
             style="height: 300px"
-            class="card-img-top rounded-top-2"
+            class="card-img-top rounded-top-0"
             [src]="
               artista.images
                 | imageURL
@@ -52,14 +52,14 @@
             alt="{{ 'Imagen del artista ' + artista.name }}"
           />
         </a>
-        <div class="card-body rounded-bottom-2 bg-dark text-white py-4">
+        <div class="card-body rounded-bottom-0 text-dark py-4">
           <a
             class="link-offset-2 link-underline link-underline-opacity-0"
             [routerLink]="['/artista', artista.id]"
           >
-            <h5 class="card-title text-white">{{ artista.name }}</h5>
+            <h5 class="card-title text-dark">{{ artista.name }}</h5>
           </a>
-          <span class="badge badge-pill ml-1">
+          <span class="badge badge-pill ml-1 text-dark">
             {{ artista.followers.total }} seguidores
           </span>
         </div>

@@ -7,7 +7,7 @@
       class="img-thunbnail rounded-circle"
     />
   </div>
-  <div class="col text-white">
+  <div class="col text-dark">
     <h2>{{ this.album?.name }}</h2>
     <p class="fw-medium">
       <a href="{{ this.album?.external_urls?.spotify }}">Pagina de Spotify</a>
@@ -15,14 +15,16 @@
   </div>
 
   <div class="col-2">
-    <button
-      type="button"
-      routerLink="buscar"
-      routerLinkActive="router-link-active"
-      class="btn btn-outline-success my-3 rounded-0 fw-bold"
-    >
-      Volver
-    </button>
+    <p-button
+    type="button"
+    routerLink='/recent'
+    routerLinkActive="router-link-active"
+    class="my-3  fw-bold"
+    size="small"
+    [outlined]="true" severity="danger"
+  >
+    Volver
+  </p-button>
   </div>
   <div class="row">
 

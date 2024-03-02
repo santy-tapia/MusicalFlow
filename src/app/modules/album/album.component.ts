@@ -3,11 +3,11 @@ import { Album, Track, TrackResult } from '../../interfaces/busqueda-artistas.in
 import { SpotifyService } from '../../servicio/spotify.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ImageURLPipe } from '../../pipes/image-url.pipe';
-
+import { ButtonModule } from 'primeng/button';
 @Component({
   selector: 'app-album',
   standalone: true,
-  imports: [ImageURLPipe, RouterLink],
+  imports: [ImageURLPipe, RouterLink, ButtonModule],
   templateUrl: './album.component.html',
   styles:''
 })

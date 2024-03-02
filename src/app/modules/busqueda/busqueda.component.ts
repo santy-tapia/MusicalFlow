@@ -4,7 +4,7 @@ import { ArtistaBusqueda, Artists } from '../../interfaces/busqueda-artistas.int
 import { ImageURLPipe } from '../../pipes/image-url.pipe';
 import { Router, RouterLink } from '@angular/router';
 import { DecimalPipe } from '@angular/common';
-
+import { ThemeService } from '../../servicio/theme.service';
 
 @Component({
   selector: 'app-busqueda',
@@ -20,10 +20,12 @@ export class BusquedaComponent {
   public artistas!:Artists;
 
   public offset:number=0;
-  constructor(private service:SpotifyService, private router:Router) {
+  constructor(private service:SpotifyService, private router:Router,public themeService: ThemeService) {
 
   }
-
+  get theme() {
+    return this.themeService.darkMode ? 'dark' : 'light';
+  }
 
   async buscar(texto:HTMLInputElement){
     this.artistas = await this.service.buscarArtista(this.textoRef.nativeElement.value, 0);
