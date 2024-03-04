@@ -7,24 +7,23 @@
       class="img-thunbnail rounded-circle"
     />
   </div>
-  <div class="col text-dark">
-    <h2>{{ this.album?.name }}</h2>
+  <div class="col">
+    <h2 [ngClass]="theme" >{{ this.album?.name }}</h2>
     <p class="fw-medium">
       <a href="{{ this.album?.external_urls?.spotify }}">Pagina de Spotify</a>
     </p>
   </div>
 
   <div class="col-2">
-    <p-button
-    type="button"
-    routerLink='/recent'
-    routerLinkActive="router-link-active"
-    class="my-3  fw-bold"
-    size="small"
-    [outlined]="true" severity="danger"
-  >
-    Volver
-  </p-button>
+    <button
+      type="button"
+      routerLink='/recent'
+      routerLinkActive="router-link-active"
+      class="my-3 btn btn-outline-danger fw-bold"
+    >
+    <i class="pi pi-angle-left"></i>
+      Volver
+    </button>
   </div>
   <div class="row">
 
@@ -51,7 +50,7 @@
   <div class="row mx-md-3 mx-1 my-3">
   <table class="rounded-2 trackTable">
     <thead>
-      <tr class=" ">
+      <tr class="">
         <th scope="col" class="py-3 text-center d-md-grid text-white fs-5 fw-medium">#</th>
         <th scope="col " class="text-start py-3 text-white fs-5 fw-medium">Canción</th>
         <th scope="col" class="py-3 text-center text-white fs-5 fw-medium">Duración</th>

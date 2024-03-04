@@ -2,12 +2,12 @@
     background-color: #333; /* Cambia esto al color que quieras para el botón en el tema oscuro */
     color: #fff;
   }
-  
+
   .light-theme-button {
     background-color: #fff; /* Cambia esto al color que quieras para el botón en el tema claro */
     color: #333;
   }
-  
+
   .rounded {
     border-radius: 50%; /* Esto hará que el botón sea redondeado */
   }

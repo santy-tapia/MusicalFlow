@@ -8,7 +8,7 @@ import { ButtonModule } from 'primeng/button';
   templateUrl: './themebutton.component.html',
   selector: 'app-theme-button',
   imports: [CommonModule, RouterLink, ButtonModule],
-  styles: ""
+  styleUrls: ['./themebutton.component.css']
 })
 export class ThemebuttonComponent {
   isDarkMode:any;
@@ -18,7 +18,11 @@ export class ThemebuttonComponent {
   toggleDarkMode() {
     this.themeService.toggleDarkMode();
   }
+
+  theme() {
+    return this.themeService.darkMode ? 'dark' : 'light';
+  }
   toggleTheme() {
-    
+
   }
 }

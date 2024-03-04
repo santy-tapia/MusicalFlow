@@ -2,6 +2,15 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'assets/theme.css';
 
+.dark .spotifycards{
+  color: #fff;
+  background:#3c3c3c;
+}
+
+.light .spotifycards{
+  color: #3c3c3c;
+  background:#fff;
+}
 .spotifycards {
   transition: 0.5s;
   scale: 1;
@@ -30,36 +39,37 @@ img {
   scale: 1.05;
 }
 
-.dark .p-menubar   {
-  background-color: #272727;
+.dark .navbar   {
+  background-color: #3c3c3c;
   color: #fff;
   border: none;
 }
-.dark-theme .p-menuitem-link  {
-  color: #fff; 
-  margin-top: 3%;
-  font-size: large;
-  text-decoration: none;/* Cambia esto al color que quieras para el texto en el tema oscuro */
+.dark .nav-link{
+   color: #fff;
+}
+.nav-item {
+  transition: 0.2s;
+  padding: 2%;
+}
+.dark .nav-item:hover{
+   background-color: #4a4a4a;
+   font-weight: bold;
+
+}
+.light .nav-item:hover{
+   background-color: #a8a8a8;
+      font-weight: bold;
+
 }
 
-.light-theme .p-menuitem-link  {
-  text-decoration: none;
-  font-size: large;
-  margin-top: 3%;
-  color: #333; /* Cambia esto al color que quieras para el texto en el tema claro */
-}
-
-.p-menuitem-link:hover {
-  scale: 1.05;
-}
-.light .p-menubar  {
+.light .navbar  {
   background-color: #d6d6d6;
   color: #333;
   border: none;
 }
  .light {
   background-image: linear-gradient(#ffffff 10%, #a52125 85%,  #690911 100%);
-   
+
   background-attachment: fixed;
 }
 
@@ -68,6 +78,8 @@ img {
   color: white;
   background-attachment: fixed;
 }
+
+
 
 .trackTable {
   background: rgba(55, 55, 55, 0.4);
@@ -91,7 +103,7 @@ img {
 
 
 
- 
+
 audio::-webkit-media-controls-panel {
   background: #e63740;
   color: white;

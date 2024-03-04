@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../../servicio/spotify.service';
 import { Novedades, Resultado } from '../../interfaces/new-release.interface';
@@ -8,7 +8,7 @@ import { ThemeService } from '../../servicio/theme.service';
 @Component({
     selector: 'app-recent',
     standalone: true,
-    imports: [RouterLink, ImageURLPipe],
+    imports: [RouterLink, ImageURLPipe, CommonModule, NgClass],
     templateUrl: './recent.component.html',
     styles: ``
   })
@@ -22,8 +22,8 @@ export class RecentComponent implements OnInit {
           this.albums = datos;
           console.log(this.albums)
         })
-  
-  
+
+
     }
     get theme() {
       return this.themeService.darkMode ? 'dark' : 'light';

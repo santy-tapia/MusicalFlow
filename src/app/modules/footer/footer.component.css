@@ -1,5 +1,5 @@
 .footer {
-    position: fixed;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -7,11 +7,11 @@
   }
 
   .footer.dark-theme {
-    background-color: #333; /* Cambia esto al color que quieras para el fondo en el tema oscuro */
+    background-color: #3c3c3c; /* Cambia esto al color que quieras para el fondo en el tema oscuro */
     color: #fff; /* Cambia esto al color que quieras para el texto en el tema oscuro */
   }
-  
+
   .footer.light-theme {
-    background-color: #acacac; /* Cambia esto al color que quieras para el fondo en el tema claro */
+    background-color: #d6d6d6; /* Cambia esto al color que quieras para el fondo en el tema claro */
     color: #333; /* Cambia esto al color que quieras para el texto en el tema claro */
   }

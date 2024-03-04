@@ -1,4 +1,4 @@
-
+import { ThemeService } from './../../servicio/theme.service';
 import { Component, OnInit, HostListener  } from '@angular/core';
 import { RouterLink, ActivatedRoute } from '@angular/router';
 import { Artist } from '../../interfaces/new-release.interface';
@@ -7,6 +7,7 @@ import { ArtistaBusqueda, Image, Track, TrackResult } from '../../interfaces/bus
 import { ImageURLPipe } from '../../pipes/image-url.pipe';
 import { CommonModule, NgClass } from '@angular/common';
 import { DatePipe } from '@angular/common';
+import { Button } from 'primeng/button';
 import { ButtonModule } from 'primeng/button';
 @Component({
   selector: 'app-artista',
@@ -23,7 +24,7 @@ export class ArtistaComponent implements OnInit {
   public artista?: ArtistaBusqueda
   public windowResized: { width: number, height: number };
   public canciones?:any;
-  constructor(ruta:ActivatedRoute, servicio:SpotifyService){
+  constructor(ruta:ActivatedRoute, servicio:SpotifyService, public themeService:ThemeService){
    ruta.params.subscribe(
     (datos:any) => {
       servicio.getArtista(datos['id']).then(art => this.artista = art);
@@ -37,6 +38,9 @@ export class ArtistaComponent implements OnInit {
    )
   this.windowResized = { width: window.innerWidth, height: window.innerHeight };
    this.index = 0
+  }
+ get theme() {
+    return this.themeService.darkMode ? 'dark' : 'light';
   }
   ngOnInit(): void {
     throw new Error('Method not implemented.');

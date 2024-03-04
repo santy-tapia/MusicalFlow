@@ -20,8 +20,8 @@ export class BarraNavegacionComponent {
 background: any = "#163102";
 items: MenuItem[] | undefined;
 
-constructor(private themeService: ThemeService) { 
-    
+constructor(private themeService: ThemeService) {
+
 }
 
 toggleDarkMode() {
@@ -40,8 +40,8 @@ get theme() {
             {
                 label: 'Recent',
                 icon: 'pi pi-fw pi-star',
-                routerLink: 'recent', 
-                
+                routerLink: 'recent',
+
             },
             {
                 label: 'Busqueda',
