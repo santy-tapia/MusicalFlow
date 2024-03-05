@@ -2,9 +2,19 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'assets/theme.css';
 
+.dark .spotifycardText{
+  color: #fff;
+  background:#252525;
+}
+
+.light .spotifycardText{
+  color: #3c3c3c;
+  background:#fff;
+}
+
 .dark .spotifycards{
   color: #fff;
-  background:#3c3c3c;
+  background:#252525;
 }
 
 .light .spotifycards{

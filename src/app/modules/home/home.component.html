@@ -4,19 +4,4 @@
   </div>
 </div>
 <div class="row my-5">
-  
-<p-carousel [value]="albums!" [numVisible]="3" [numScroll]="3" [circular]="true" [responsiveOptions]="responsiveOptions" >
-  <ng-template let-album pTemplate="item">
-    <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
-      <div class="mb-3">
-          <img  [src]="
-          album.images[2].url" [alt]="album.name" class="w-6 shadow-2" />
-      </div>
-      <div>
-          <h4 class="mb-1">{{ album.name }}</h4>
-         
-      </div>
-  </div>
-  </ng-template>
-</p-carousel>
 </div>

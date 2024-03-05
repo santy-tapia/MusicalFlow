@@ -21,7 +21,7 @@
       routerLinkActive="router-link-active"
       class="my-3 btn btn-outline-danger fw-bold"
     >
-    <i class="pi pi-angle-left"></i>
+    <i class="pi  d-none d-lg-inline  pi-angle-left"></i>
       Volver
     </button>
   </div>
@@ -29,12 +29,12 @@
 
     <div class="col m-3">
           <audio class="w-100 mx-3" controls [src]="albumTracks[this.index].preview_url"></audio>
-          <p class="fst-italic fs-5 text-white  mx-3">{{albumTracks[this.index].name}}
+          <p [ngClass]="theme" class="fst-italic fs-5  mx-3">{{albumTracks[this.index].name}}
           @if(albumTracks[this.index].explicit==true){
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="10"
-              height="10"
+              width="12"
+              height="12"
               fill="currentColor"
               class="bi bi-explicit-fill"
               viewBox="0 0 16 16"

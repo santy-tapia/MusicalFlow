@@ -3,21 +3,22 @@
       <h3 class="display-3 display-3 fw-normal" [class]="theme">Lanzamientos Recientes</h3>
     </div>
   </div>
-  <div class="row my-5">
-    @for (novedad of this.albums?.albums?.items; track $index) {
-    <div class="col-lg-4 col-md-5 col-xl-3  py-3">
+  <div class="row m-3">
+    <div class="row">
+       @for (novedad of this.albums?.albums?.items; track $index) {
+    <div class="col-lg-4 col-md-5 col-xl-3  my-3">
       <div [ngClass]="theme" class="card m-2 spotifycards rounded-3 border border-0">
         <a [routerLink]="['/album', novedad.id]">
           <img
 
-              class="card-img-top  rounded-top-3"
-              style="height: 300px;"
+              class="card-img-top p-5"
+              style="height: 300px; "
               [src]="
                novedad.images[2].url"
               alt="{{ 'Imagen del artista ' + novedad.name }}"
             />
         </a>
-        <div class="card-body rounded-bottom-3">
+        <div class="card-body ">
           <a
             class="link-underline  link-underline-opacity-0 "
             href="{{ novedad.external_urls.spotify }}"
@@ -43,4 +44,5 @@
       <div class="alert alert-info" role="alert">Cargando Novedades...</div>
     </div>
     }
+    </div>
   </div>

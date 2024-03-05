@@ -3,24 +3,24 @@
     <h3 class="display-3 fw-normal" [class]="theme">Artistas</h3>
   </div>
 </div>
-<div class="row m-3">
-  <div class="col-8">
+<div class="row my-3 ms-5 ps-md-5 ps-2">
+  <div class="col-8 ms-md-5 ps-md-5 ps-2">
     <input
       #artista
       type="text"
       (keyup)="buscar(artista)"
-      class="form-control rounded-0"
+      class="form-control "
       placeholder="Artista"
     />
   </div>
   <div class="col-2">
-    <button class="btn btn-outline-success rounded-0" (click)="buscar(artista)">
+    <button class="btn btn-outline-success mx-2" (click)="buscar(artista)">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="14"
         height="14"
         fill="currentColor"
-        class="bi bi-search"
+        class="bi d-none d-lg-inline bi-search"
         viewBox="0 0 16 16"
       >
         <path
@@ -30,20 +30,23 @@
       Buscar
     </button>
   </div>
+  <!--
     <div class="col-2">
       <a class="btn btn-outline-success rounded-0" routerLink='/forms' routerLinkActive="router-link-active">Busqueda Detallada</a>
     </div>
+  -->
+
 </div>
 
-<div class="row m-3">
+<div class="row m-3 ">
   <div class="row">
     @for (artista of artistas?.items; track $index) {
     <div class="col-lg-4 col-md-5 col-xl-3  my-3">
-      <div class="card m-2 spotifycards rounded-0  border border-0">
+      <div class="card m-2 spotifycards rounded-3  border border-0">
         <a [routerLink]="['/artista', artista.id]">
           <img
             style="height: 300px"
-            class="card-img-top rounded-top-0"
+            class="card-img-top p-5"
             [src]="
               artista.images
                 | imageURL
@@ -52,16 +55,15 @@
             alt="{{ 'Imagen del artista ' + artista.name }}"
           />
         </a>
-        <div class="card-body rounded-bottom-0 text-dark py-4">
+        <div class="card-body  text-dark py-4">
           <a
             class="link-offset-2 link-underline link-underline-opacity-0"
             [routerLink]="['/artista', artista.id]"
           >
-            <h5 class="card-title text-dark">{{ artista.name }}</h5>
+            <h5 class="card-title ps-3 spotifycardText">{{ artista.name }}</h5>
           </a>
-          <span class="badge badge-pill ml-1 text-dark">
-            {{ artista.followers.total }} seguidores
-          </span>
+          <p class="badge badge-pill ms-2 spotifycardText" [class]="theme">{{ artista.followers.total }} seguidores
+          </p>
         </div>
       </div>
     </div>
@@ -71,7 +73,7 @@
   </div>
   @if (this.artistas?.next){
   <div class="row m-2">
-    <div class="col-3">
+    <div class="col-md-3 col-4">
       <button class="btn btn-outline-secondary rounded-0 fw-bold text-white" (click)="verMas()">Ver Más</button>
     </div>
 
