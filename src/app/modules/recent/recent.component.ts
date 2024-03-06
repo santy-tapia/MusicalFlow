@@ -16,8 +16,8 @@ export class RecentComponent implements OnInit {
     public albums?:Novedades;
 
     constructor(private servicio:SpotifyService, public themeService: ThemeService){
-      console.log(servicio.getNovedades());
-        this.servicio.getNovedades()
+      console.log(servicio.getAlbumsNuevos());
+        this.servicio.getAlbumsNuevos()
         .then( (datos:Novedades) => {
           this.albums = datos;
           console.log(this.albums)

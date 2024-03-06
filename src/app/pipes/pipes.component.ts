@@ -18,7 +18,7 @@ export class PipesComponent {
   public novedades:Promise<any>|null;
 
   constructor(private servicio:SpotifyService){
-    this.novedades = this.servicio.getNovedades();
+    this.novedades = this.servicio.getAlbumsNuevos();
     console.log(this)
   }
 }

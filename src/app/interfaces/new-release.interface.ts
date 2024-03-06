@@ -12,6 +12,7 @@ export interface Resultado {
   previous: string;
   total:    number;
   items:    Album[];
+  popularity:             number;
 }
 
 export interface Album {

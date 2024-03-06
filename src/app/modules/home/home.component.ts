@@ -18,8 +18,8 @@ export class HomeComponent {
 
     responsiveOptions: any[] | undefined;
     constructor(private servicio:SpotifyService, public themeService: ThemeService){
-      console.log(servicio.getNovedades());
-        this.servicio.getNovedades()
+      console.log(servicio.get10AlbumsNuevos());
+        this.servicio.get10AlbumsNuevos()
         .then( (datos:Novedades) => {
           this.albums = datos;
           console.log(this.albums)
@@ -28,7 +28,7 @@ export class HomeComponent {
 
     }
     ngOnInit() {
-        this.servicio.getNovedades().then((products) => {
+        this.servicio.get10AlbumsNuevos().then((products) => {
             this.albums = products;
         });
 

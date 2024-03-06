@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable, firstValueFrom } from 'rxjs';
 import { Token } from '../interfaces/token.interface';
 //import { Novedades, Resultado } from '../interfaces/new-releases.interface';
-import { ResultadoBusqueda, ArtistaBusqueda, Artists, Track, TrackResult, Album, Type } from '../interfaces/busqueda-artistas.interface';
+import { ResultadoBusqueda, ArtistaBusqueda, Artists, Track, TrackResult, Album, Type, Tracks, Albums } from '../interfaces/busqueda-artistas.interface';
 
 
 @Injectable({
@@ -80,7 +80,7 @@ export class SpotifyService {
     };
   }
 
-  async getNovedades(): Promise<any> {
+  async getAlbumsNuevos(): Promise<any> {
     const opt = await this.getOption();
     console.log("opt", opt);
     let albumes = await firstValueFrom(this.http
@@ -88,6 +88,12 @@ export class SpotifyService {
     return albumes;
   }
 
+  async get10AlbumsNuevos(): Promise<any> {
+    const opt = await this.getOption();
+    let novedades = await firstValueFrom(this.http
+      .get('https://api.spotify.com/v1/browse/new-releases?limit=9', opt));
+    return novedades;
+  }
 
   async buscarArtista(artista: string, offset: number = 0, limit: number = 20): Promise<Artists> {
     let resultado = await firstValueFrom(this.http.get<ResultadoBusqueda>(
@@ -96,6 +102,23 @@ export class SpotifyService {
     ));
 
     return resultado.artists;
+  }
+
+  async buscarCancion(track: string, offset: number = 0, limit: number = 20): Promise<Tracks> {
+    let resultado = await firstValueFrom(this.http.get<ResultadoBusqueda>(
+      'https://api.spotify.com/v1/search',
+      await this.getOptions({ 'q': track, 'type': 'track', offset, limit })
+    ));
+
+    return resultado.tracks;
+  }
+  async buscarAlbum(album: string, offset: number = 0, limit: number = 20): Promise<Albums> {
+    let resultado = await firstValueFrom(this.http.get<ResultadoBusqueda>(
+      'https://api.spotify.com/v1/search',
+      await this.getOptions({ 'q': album, 'type': 'album', offset, limit })
+    ));
+
+    return resultado.albums;
   }
 
   async buscarArtistaForm(artista: string,type:string, market:string, limit: number,  offset: number): Promise<Artists> {

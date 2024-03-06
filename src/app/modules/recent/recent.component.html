@@ -1,48 +1,49 @@
 <div class="row pt-5 mb-5">
-    <div class="col d-grid text-center">
-      <h3 class="display-3 display-3 fw-normal" [class]="theme">Lanzamientos Recientes</h3>
-    </div>
+  <div class="col d-grid text-center">
+    <h3 class="display-3 display-3 fw-normal" [class]="theme">
+      Lanzamientos Recientes
+    </h3>
   </div>
-  <div class="row m-3">
-    <div class="row">
-       @for (novedad of this.albums?.albums?.items; track $index) {
-    <div class="col-lg-4 col-md-5 col-xl-3  my-3">
-      <div [ngClass]="theme" class="card m-2 spotifycards rounded-3 border border-0">
-        <a [routerLink]="['/album', novedad.id]">
-          <img
-
-              class="card-img-top p-5"
-              style="height: 300px; "
-              [src]="
-               novedad.images[2].url"
-              alt="{{ 'Imagen del artista ' + novedad.name }}"
-            />
+</div>
+<div class="row">
+  @for (novedad of this.albums?.albums?.items; track $index) {
+  <div class="col-lg-4 col-md-5 col-xl-3 my-3">
+    <div
+      [ngClass]="theme"
+      class="card spotifycards rounded-3 border border-0"
+    >
+      <a [routerLink]="['/album', novedad.id]">
+        <img
+          class="card-img-top p-5"
+          style="height: 300px"
+          [src]="novedad.images[2].url"
+          alt="{{ 'Imagen del artista ' + novedad.name }}"
+        />
+      </a>
+      <div class="card-body">
+        <a
+          class="link-underline link-underline-opacity-0"
+          href="{{ novedad.external_urls.spotify }}"
+          [ngClass]="theme"
+        >
+          <h5 class="card-title songTitle">{{ novedad.name }}</h5>
         </a>
-        <div class="card-body ">
+        <p class="card-text">
+          @for (artista of novedad.artists; track $index) {
           <a
-            class="link-underline  link-underline-opacity-0 "
-            href="{{ novedad.external_urls.spotify }}"
-            [ngClass]="theme"
+            [routerLink]="['/artista', artista.id]"
+            class="badge btn btn-danger rounded-2 me-1 mt-1 p-1"
           >
-            <h5 class="card-title songTitle">{{ novedad.name }}</h5>
+            {{ artista.name }}
           </a>
-          <p class="card-text">
-            @for (artista of novedad.artists; track $index) {
-            <a
-              [routerLink]="['/artista', artista.id]"
-              class="badge btn btn-danger rounded-2 me-1 mt-1 p-1"
-            >
-              {{ artista.name }}
-            </a>
-            }
-          </p>
-        </div>
+          }
+        </p>
       </div>
     </div>
-    }@empty {
-    <div class="col-12 mt-5">
-      <div class="alert alert-info" role="alert">Cargando Novedades...</div>
-    </div>
-    }
-    </div>
   </div>
+  }@empty {
+  <div class="col-12 mt-5">
+    <div class="alert alert-info" role="alert">Cargando Novedades...</div>
+  </div>
+  }
+</div>
