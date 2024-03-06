@@ -4,4 +4,41 @@
   </div>
 </div>
 <div class="row my-5">
+   <p-carousel [value]="albums?.albums?.items" [numVisible]="4" [numScroll]="2" [circular]="true" [responsiveOptions]="responsiveOptions">
+    <ng-template let-novedad pTemplate="item">
+        <div class="  border-round text-center py-5 px-3">
+              <div [ngClass]="theme" class="card m-2 spotifycards rounded-3 border border-0">
+        <a [routerLink]="['/album', novedad.id]">
+          <img
+
+              class="card-img-top p-5"
+              style="height: 300px; "
+              [src]="
+               novedad.images[2].url"
+              alt="{{ 'Imagen del artista ' + novedad.name }}"
+            />
+        </a>
+        <div class="card-body ">
+          <a
+            class="link-underline  link-underline-opacity-0 "
+            href="{{ novedad.external_urls.spotify }}"
+            [ngClass]="theme"
+          >
+            <h5 class="card-title songTitle">{{ novedad.name }}</h5>
+          </a>
+          <p class="card-text">
+            @for (artista of novedad.artists; track $index) {
+            <a
+              [routerLink]="['/artista', artista.id]"
+              class="badge btn btn-danger rounded-2 me-1 mt-1 p-1"
+            >
+              {{ artista.name }}
+            </a>
+            }
+          </p>
+        </div>
+      </div>
+        </div>
+    </ng-template>
+</p-carousel>
 </div>

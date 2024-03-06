@@ -1,10 +1,10 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { SpotifyService } from '../../servicio/spotify.service';
+import { SpotifyService } from '../../services/spotify.service';
 import { ArtistaBusqueda, Artists } from '../../interfaces/busqueda-artistas.interface';
 import { ImageURLPipe } from '../../pipes/image-url.pipe';
 import { Router, RouterLink } from '@angular/router';
 import { DecimalPipe } from '@angular/common';
-import { ThemeService } from '../../servicio/theme.service';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-busqueda',

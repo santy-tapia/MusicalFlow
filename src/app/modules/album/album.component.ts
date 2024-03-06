@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Album, Track, TrackResult } from '../../interfaces/busqueda-artistas.interface';
-import { SpotifyService } from '../../servicio/spotify.service';
+import { SpotifyService } from '../../services/spotify.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ImageURLPipe } from '../../pipes/image-url.pipe';
 import { ButtonModule } from 'primeng/button';
-import { ThemeService } from '../../servicio/theme.service';
+import { ThemeService } from '../../services/theme.service';
 import { CommonModule, NgClass } from '@angular/common';
 @Component({
   selector: 'app-album',

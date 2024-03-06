@@ -4,7 +4,7 @@ import { NgModel, NgForm, FormGroup, FormControl, Validators, ReactiveFormsModul
 import { Type, Artists, ArtistaBusqueda } from '../../interfaces/busqueda-artistas.interface';
 import { JsonPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { SpotifyService } from '../../servicio/spotify.service';
+import { SpotifyService } from '../../services/spotify.service';
 import { Router, RouterLink } from '@angular/router';
 import { ImageURLPipe } from '../../pipes/image-url.pipe';
 @Component({

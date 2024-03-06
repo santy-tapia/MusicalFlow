@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ThemeService } from '../../servicio/theme.service';
+import { ThemeService } from '../../services/theme.service';
 import { Inject } from '@angular/core';
 
 @Component({

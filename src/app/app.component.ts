@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { BarraNavegacionComponent } from './modules/barra-navegacion/barra-navegacion.component';
-import { ThemeService } from './servicio/theme.service';
+import { ThemeService } from './services/theme.service';
 import { Inject } from '@angular/core';
 import { FooterComponent } from "./modules/footer/footer.component";
 
@@ -21,5 +21,5 @@ export class AppComponent {
   get theme() {
     return this.themeService.darkMode ? 'dark' : 'light';
   }
-  
+
 }

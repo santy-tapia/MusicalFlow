@@ -1,10 +1,10 @@
 import { CommonModule, NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { SpotifyService } from '../../servicio/spotify.service';
+import { SpotifyService } from '../../services/spotify.service';
 import { Novedades, Resultado } from '../../interfaces/new-release.interface';
 import { RouterLink } from '@angular/router';
 import { ImageURLPipe } from '../../pipes/image-url.pipe';
-import { ThemeService } from '../../servicio/theme.service';
+import { ThemeService } from '../../services/theme.service';
 @Component({
     selector: 'app-recent',
     standalone: true,

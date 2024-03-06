@@ -4,7 +4,7 @@ import { BootstrapOptions } from '@angular/core';
 import { MenubarModule } from 'primeng/menubar';
 import { MenuItem } from 'primeng/api';
 import { NgModule } from '@angular/core';
-import { ThemeService } from '../../servicio/theme.service'
+import { ThemeService } from '../../services/theme.service'
 import { ThemebuttonComponent } from '../themebutton/themebutton.component';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';

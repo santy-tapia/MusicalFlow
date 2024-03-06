@@ -1,6 +1,6 @@
 import { CurrencyPipe, DatePipe, DecimalPipe, JsonPipe, UpperCasePipe, LowerCasePipe, PercentPipe, SlicePipe, AsyncPipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { SpotifyService } from '../servicio/spotify.service';
+import { SpotifyService } from '../services/spotify.service';
 @Component({
   selector: 'app-pipes',
   standalone: true,

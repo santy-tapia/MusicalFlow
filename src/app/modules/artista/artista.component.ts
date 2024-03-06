@@ -1,8 +1,8 @@
-import { ThemeService } from './../../servicio/theme.service';
+import { ThemeService } from '../../services/theme.service';
 import { Component, OnInit, HostListener  } from '@angular/core';
 import { RouterLink, ActivatedRoute } from '@angular/router';
 import { Artist } from '../../interfaces/new-release.interface';
-import { SpotifyService } from '../../servicio/spotify.service';
+import { SpotifyService } from '../../services/spotify.service';
 import { ArtistaBusqueda, Image, Track, TrackResult } from '../../interfaces/busqueda-artistas.interface';
 import { ImageURLPipe } from '../../pipes/image-url.pipe';
 import { CommonModule, NgClass } from '@angular/common';
