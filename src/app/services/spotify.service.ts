@@ -94,7 +94,7 @@ export class SpotifyService {
       .get('https://api.spotify.com/v1/browse/new-releases?limit=9', opt));
     return novedades;
   }
-
+ 
   async buscarArtista(artista: string, offset: number = 0, limit: number = 20): Promise<Artists> {
     let resultado = await firstValueFrom(this.http.get<ResultadoBusqueda>(
       'https://api.spotify.com/v1/search',
@@ -129,7 +129,12 @@ export class SpotifyService {
 
     return resultado.artists;
   }
-
+  async getCancion(id:string): Promise<Track> {
+    const opt = await this.getOption();
+    let cancion:Track = await firstValueFrom(this.http
+      .get<Track>('https://api.spotify.com/v1/tracks/'+id, opt));
+    return cancion;
+  }
   async getArtista(id: string):Promise<ArtistaBusqueda> {
     let artista:ArtistaBusqueda = await firstValueFrom(this.http.get<ArtistaBusqueda>(
       'https://api.spotify.com/v1/artists/' + id,

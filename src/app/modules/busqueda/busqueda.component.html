@@ -4,7 +4,7 @@
   </div>
 </div>
 <div class="row m-3 container d-flex justify-content-center">
-  <div class="col-10">
+  <div class="col-6">
     <!--Aqui va el icono de lupa de bootstrap-->
 
     <div class="input-group mb-3">
@@ -19,13 +19,14 @@
         placeholder=""
       />
     </div>
-    <!--select para mostrar cancion, artista o album-->
+  </div>
+  <div class="col-4">    
     <div class="input-group mb-3">
       <label class="input-group-text" for="inputGroupSelect01"
         >Buscar por:</label
       >
       <select
-        class="form-select  rounded-end-2"
+        class="form-select rounded-end-2"
         id="inputGroupSelect01"
         #tipo
         (change)="show(tipo)"
@@ -34,14 +35,10 @@
         <option value="album">Album</option>
         <option value="cancion">Cancion</option>
       </select>
-      <div class="col-2">
-        <!--
-    <div class="col-2">
-      <a class="btn btn-outline-success rounded-0" routerLink='/forms' routerLinkActive="router-link-active">Busqueda Detallada</a>
+      <div class="col-2"></div>
     </div>
-  -->
-      </div>
-    </div>
+
+</div>
     <div class="row">
       @if(this.toShow == 1){ @for (artista of artistas?.items; track $index) {
       <div class="col-lg-4 col-md-5 col-xl-3 my-3">
@@ -74,7 +71,7 @@
         </div>
       </div>
       }@empty { @if(artista.value){
-      <div class="alert alert-info m-3">No hay artistas</div>
+      <div class="alert alert-info m-3">No hay albums</div>
       } } } @else if (this.toShow == 2) { @for (album of albumes?.items; track
       $index) {
       <div class="col-lg-4 col-md-5 col-xl-3 my-3">
@@ -102,12 +99,12 @@
         </div>
       </div>
       }@empty { @if(artista.value){
-      <div class="alert alert-info m-3">No hay artistas</div>
+      <div class="alert alert-info m-3">No hay canciones</div>
       } } } @else if(this.toShow == 3){ @for (cancion of canciones?.items; track
       $index) {
       <div class="col-lg-4 col-md-5 col-xl-3 my-3">
         <div class="card spotifycards rounded-3 border border-0">
-          <a [routerLink]="['/', cancion.id]">
+          <a [routerLink]="['/cancion', cancion.id]">
             <img
               style="height: 300px"
               class="card-img-top p-5"
@@ -134,19 +131,18 @@
       }@empty { @if(artista.value){
       <div class="alert alert-info m-3">No hay artistas</div>
       } } }
+      @if (this.artistas?.next){
+        <div class="row m-2">
+          <div class="col-md-3 col-4">
+            <button
+              class="btn btn-outline-secondary rounded-0 fw-bold text-white"
+              (click)="verMas()"
+            >
+              Ver Más
+            </button>
+          </div>
+        </div>
+        }
     </div>
 
-    @if (this.artistas?.next){
-    <div class="row m-2">
-      <div class="col-md-3 col-4">
-        <button
-          class="btn btn-outline-secondary rounded-0 fw-bold text-white"
-          (click)="verMas()"
-        >
-          Ver Más
-        </button>
-      </div>
-    </div>
-    }
-  </div>
-</div>
+  

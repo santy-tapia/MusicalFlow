@@ -6,6 +6,7 @@ import { FormularioBusquedaComponent } from './modules/formulario-busqueda/formu
 import { AlbumComponent } from './modules/album/album.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { RecentComponent } from './modules/recent/recent.component';
+import { CancionComponent } from './modules/cancion/cancion.component';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -14,6 +15,7 @@ export const routes: Routes = [
   { path: 'recent', component: RecentComponent},
   { path: 'artista/:id', component: ArtistaComponent },
   { path: 'album/:id', component: AlbumComponent},
+  { path: 'cancion/:id', component: CancionComponent},
   { path: 'forms', component:FormularioBusquedaComponent},
   { path: 'pipes', component:PipesComponent},
   { path: '**', redirectTo: 'home' },

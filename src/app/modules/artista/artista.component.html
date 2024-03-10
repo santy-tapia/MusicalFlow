@@ -46,7 +46,8 @@
       controls
       [src]="canciones[this.index].preview_url"
     ></audio>
-    <p class="fst-italic fs-5  mx-3" [ngClass]="theme">
+    <a class="link-underline link-underline-opacity-0 song-link"  [ngClass]="theme" [routerLink]="['/cancion', canciones[this.index].id]"
+    ><p class="fst-italic fs-5 mx-3">
       {{ canciones[this.index].name }}
       @if(canciones[this.index].explicit==true){
       <svg
@@ -63,6 +64,7 @@
       </svg>
       }
     </p>
+    </a>  
   </div>
 </div>
 <div class="row mx-md-3 mx-1 my-3">
@@ -73,7 +75,7 @@
           scope="col"
           class="py-3 text-center d-md-grid text-white fs-5 fw-medium"
         >
-          #
+          Album
         </th>
         <th scope="col " class="text-start py-3 text-white fs-5 fw-medium">
           Canción
@@ -90,7 +92,12 @@
         (click)="changeIndex(cancion.track_number)"
       >
         <td>
-          {{ cancion.track_number }}
+          <img
+            [src]="cancion.album.images | imageURL"
+            style="width: 45px"
+            alt=""
+            class="img-thunbnail my-1 rounded-2"
+          />
         </td>
         <td class="pt-2 text-start">
           {{ cancion.name }}

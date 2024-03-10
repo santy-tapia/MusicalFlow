@@ -6,7 +6,16 @@
   color: #fff;
   background:#252525;
 }
+.dark .song-link {
+  color: #fff;
+  text-decoration: none;
 
+}
+.light .song-link {
+  color: #252525;
+  text-decoration: none;
+
+}
 .light .spotifycardText{
   color: #3c3c3c;
   background:#fff;
